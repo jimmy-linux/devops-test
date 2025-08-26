@@ -68,7 +68,7 @@ jobs:
       - name: check kubectl
         run: |
           mkdir ~/.kube
-          echo "$KUBECONFIG" > ~/.kube/config
+          echo "$KUBECONFIG" | base64 -d > ~/.kube/config
           kubectl get services
         env:
           KUBECONFIG: |

@@ -34,11 +34,11 @@ jobs:
       - name: check kubectl
         run: |
           mkdir ~/.kube
-          echo "$KUBECONFIG" | base64 -d > ~/.kube/config
-          head -3 ~/.kube/config
+          echo "$KUBECONFIGCONTENT" | base64 -d > ~/.kube/config
           kubectl get nodes
+          kubectl get services
         env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+          KUBECONFIGCONFIG: ${{ secrets.KUBECONFIG }}
 
       - name: Checkout repository
         uses: actions/checkout@v4

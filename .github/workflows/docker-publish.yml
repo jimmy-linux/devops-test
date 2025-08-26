@@ -65,6 +65,14 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
+      - name: check kubectl
+        run: |
+          mkdir ~/.kube
+          echo "$KUBECONFIG" > ~/.kube/config
+          kubectl get services
+        env:
+          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+
       - name: Install dependencies and build
         run: |
           npm i

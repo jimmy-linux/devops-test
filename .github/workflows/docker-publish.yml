@@ -68,10 +68,11 @@ jobs:
       - name: check kubectl
         run: |
           mkdir ~/.kube
-          #echo "$KUBECONFIG" > ~/.kube/config
+          echo "$KUBECONFIG" > ~/.kube/config
           kubectl get services
         env:
-          KUBECONFIG: ${{ secrets.KUBECONFIG }}
+          KUBECONFIG: |
+            ${{ secrets.KUBECONFIG }}
 
       - name: Install dependencies and build
         run: |

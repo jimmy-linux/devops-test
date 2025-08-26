@@ -70,7 +70,7 @@ jobs:
           mkdir ~/.kube
           echo "$KUBECONFIG" | base64 -d > ~/.kube/config
           head -3 ~/.kube/config
-          kubectl --help
+          kubectl get nodes
         env:
           KUBECONFIG: |
             ${{ secrets.KUBECONFIG }}

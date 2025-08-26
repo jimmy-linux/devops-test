@@ -38,7 +38,7 @@ jobs:
           kubectl get nodes
           kubectl get services
         env:
-          KUBECONFIGCONFIG: ${{ secrets.KUBECONFIG }}
+          KUBECONFIGCONTENT: ${{ secrets.KUBECONFIG }}
 
       - name: Checkout repository
         uses: actions/checkout@v4

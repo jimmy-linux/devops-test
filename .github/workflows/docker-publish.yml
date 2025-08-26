@@ -69,7 +69,7 @@ jobs:
         run: |
           mkdir ~/.kube
           echo "$KUBECONFIG" | base64 -d > ~/.kube/config
-          kubectl get services
+          #kubectl get services
         env:
           KUBECONFIG: |
             ${{ secrets.KUBECONFIG }}
